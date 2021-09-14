@@ -13,7 +13,7 @@ class Line
 
         bool operator == (const Line &) const;
         bool isconnected (const Line &) const;
-      //  bool pointatside(Point &) const;
+        int pointatside(const Point &) const;
         Point getsp()const;
         Point getep()const;
 

@@ -16,7 +16,7 @@ class Point
     private:
         int x,y;
 
-    friend ostream & operator << (ostream &, const Point&);
+    friend ostream & operator << (ostream &, const Point &);
     friend istream & operator >> (istream &, Point&);
 };
 #endif

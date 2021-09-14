@@ -22,6 +22,7 @@ Line::Line(const Point &p1, const Point &p2):sp(p1),ep(p2)
     if (p1.getx()==p2.getx()) 
     {
         perp=true;
+        b=p1.getx();
     }
     else 
     {
@@ -42,4 +43,20 @@ bool Line::isconnected (const Line &l) const
     if (*this==l) return false;
     if (sp==l.sp||ep==l.ep||sp==l.ep||ep==l.sp) return true;
     return false;
+}
+
+int Line::pointatside(const Point &p) const
+{
+    if (perp)
+    {
+        if (p.getx()>b) return 1;
+        if (p.getx()==b) return 0;
+        if (p.getx()<b) return -1;
+    }
+    else
+    {
+        if (k*p.getx()+b>p.gety()) return 1;
+        if (k*p.getx()+b<p.gety()) return -1;
+    }
+    return 0;
 }
