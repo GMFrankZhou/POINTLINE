@@ -3,8 +3,10 @@
 
 #include <iostream>
 #include "point.h"
-using namespace std;
 
+using std::ostream;
+
+class Pointset;
 class Line
 {
     public:
@@ -12,8 +14,13 @@ class Line
         Line(const Point &, const Point &);
 
         bool operator == (const Line &) const;
-        bool isconnected (const Line &) const;
+        int isconnected (const Line &) const;
         int pointatside(const Point &) const;
+        bool pointonline(const Point &) const;
+        double getk() const {return k;}
+        bool isperp() const {return perp;}
+        int pointsatsameside(const Pointset &) const;
+        void reverse();
         Point getsp()const;
         Point getep()const;
 

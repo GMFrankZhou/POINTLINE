@@ -2,29 +2,37 @@
 #define _POINTSET_
 
 #include <iostream>
-#include "point.h"
-#include "line.h"
+using std::ostream;
+using std::istream;
 
+class Point;
+class Line;
+class Polygon;
 class Pointset
 {
     public:
-        Pointset(const int cap=10);
+        Pointset();
         Pointset(const Pointset &);
+        Pointset(const Line&);
+        Pointset(const Point&);
+        Pointset(const Polygon&);
         ~Pointset();        
         Pointset & operator =(const Pointset &);
-        bool append(const Point &);
-        bool append(const Line &);
-        Pointset & remove(const Point &);
+        Pointset operator -(const Point &) const;
+        Pointset & append(const Point &);
+        Pointset & append(const Line &);
+        Polygon findboundary() const;
+        void clear();
         bool has(const Point &) const;
-        inline Point & getpoint() const {return *p_data;}
-        inline int getcapacity() const {return capacity;}
+        inline const Point * getpoint() const {return p_data;}
         inline int getcount() const {return count;}
     private:
-        int capacity;
         int count;
         Point *p_data;
 
+
     friend ostream & operator << (ostream &, const Pointset &);
+    friend istream & operator >> (istream &, Pointset &);
 };
 
 #endif

@@ -2,7 +2,10 @@
 #define _POINT_
 
 #include <iostream>
-using namespace std;
+
+using std::ostream;
+using std::istream;
+
 
 class Point
 {
