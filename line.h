@@ -18,6 +18,7 @@ class Line
         int pointatside(const Point &) const;
         bool pointonline(const Point &) const;
         double getk() const {return k;}
+        double getb() const {return b;}
         bool isperp() const {return perp;}
         int pointsatsameside(const Pointset &) const;
         void reverse();

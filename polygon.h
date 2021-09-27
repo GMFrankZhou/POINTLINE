@@ -32,14 +32,4 @@ class Polygon
     friend ostream & operator << (ostream &, const Polygon &);
 };
 
-
-
-
-
-
-
-
-
-
-
 #endif

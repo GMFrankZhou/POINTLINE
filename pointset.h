@@ -2,8 +2,11 @@
 #define _POINTSET_
 
 #include <iostream>
+#include <fstream>
 using std::ostream;
 using std::istream;
+using std::ifstream;
+
 
 class Point;
 class Line;
@@ -33,6 +36,8 @@ class Pointset
 
     friend ostream & operator << (ostream &, const Pointset &);
     friend istream & operator >> (istream &, Pointset &);
+    friend void operator >> (ifstream &, Pointset &);
+
 };
 
 #endif

@@ -2,15 +2,18 @@
 #define _POINT_
 
 #include <iostream>
+#include <fstream>
 
 using std::ostream;
 using std::istream;
+using std::ifstream;
+
 
 
 class Point
 {
     public:
-    Point (int xx=0,int yy=0):x(xx),y(yy){}
+    Point (double xx=0,double yy=0):x(xx),y(yy){}
     
     int getx() const;
     int gety() const;
@@ -21,5 +24,8 @@ class Point
 
     friend ostream & operator << (ostream &, const Point &);
     friend istream & operator >> (istream &, Point&);
+    friend bool operator >> (ifstream &, Point&);
 };
+
+
 #endif

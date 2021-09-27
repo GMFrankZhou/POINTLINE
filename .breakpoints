@@ -1,24 +1,3 @@
 {
-  "files": {
-    "polygon.cpp": [
-      {
-        "id": "e8b0389c-f711-40f3-bacb-e5673f00d24f",
-        "line": 149,
-        "version": 5209,
-        "index": 3207
-      },
-      {
-        "id": "f8206fee-ee3c-4a72-b1d7-703573ce31af",
-        "line": 157,
-        "version": 5209,
-        "index": 3370
-      },
-      {
-        "id": "cde65ec8-aabc-4bed-9b5d-83139c72b4c6",
-        "line": 159,
-        "version": 5209,
-        "index": 3434
-      }
-    ]
-  }
+  "files": {}
 }

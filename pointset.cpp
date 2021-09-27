@@ -5,6 +5,8 @@
 #include "polygon.h"
 using namespace std;    
 
+
+
 Pointset::Pointset():count(0)
 {
     p_data=NULL;
@@ -13,13 +15,18 @@ Pointset::Pointset():count(0)
 Pointset::Pointset(const Pointset & ps)
 {
     count=ps.count;
-    p_data=new Point[count];
-    Point *p=p_data;
-    Point *q=ps.p_data;
-    for (int i=0;i<count;i++)
+    if (count!=0)
     {
-        *(p+i)=*(q+i);
+        p_data=new Point[count];
+        Point *p=p_data;
+        Point *q=ps.p_data;
+        for (int i=0;i<count;i++)
+        {
+            *(p+i)=*(q+i);
+        }
     }
+    else
+        p_data=NULL;
 }
 
 Pointset::Pointset(const Line& l):count(2)
@@ -39,18 +46,23 @@ Pointset::Pointset(const Polygon &pg)
 {
     Pointset ps=pg.getpoints();
     count=ps.count;
-    p_data=new Point[count];
-    Point *p=p_data;
-    Point *q=ps.p_data;
-    for (int i=0;i<count;i++)
+    if (count>0)
     {
-        *(p+i)=*(q+i);
+        p_data=new Point[count];
+        Point *p=p_data;
+        Point *q=ps.p_data;
+        for (int i=0;i<count;i++)
+        {
+            *(p+i)=*(q+i);
+        }
     }
+    else
+        p_data=NULL;
 }
 
 Pointset::~Pointset()
 {
-    delete [] p_data;
+    if (p_data) delete [] p_data;
 }  
 
 Pointset & Pointset::operator =(const Pointset &ps)
@@ -62,7 +74,7 @@ Pointset & Pointset::operator =(const Pointset &ps)
     else
     {
         count=ps.count;
-        delete[] p_data;
+        if (p_data) delete[] p_data;
         p_data=new Point[count];
         for (int i=0;i<count;i++)
             p_data[i]=ps.p_data[i];
@@ -78,7 +90,7 @@ Pointset & Pointset::append(const Point &p)
     
     Pointset tempps(*this);
 
-    delete[] p_data;
+    if (p_data) delete[] p_data;
     p_data=new Point[count+1];
     for (int i=0;i<count;i++)
         p_data[i]=tempps.p_data[i];
@@ -94,6 +106,7 @@ Pointset & Pointset::append(const Line &l)
 ostream & operator << (ostream &os, const Pointset &p)
 {
     Point *q=p.p_data;
+    os<<endl;
     for(int i=0;i<p.count;i++)
         os<<q[i]<<endl;
     return os;
@@ -126,6 +139,19 @@ istream & operator >> (istream &is, Pointset &ps)
     return is;
 }
 
+void operator >> (ifstream &ifs, Pointset &ps)
+{
+    ps.clear();
+    Point p;
+    bool e=false;
+    while (!e)
+        if(ifs>>p) ps.append(p);
+        else e=true;
+    cout <<endl<<ps.getcount()<<" Point(s) have been read:"<<endl;
+    cout <<ps;
+}
+
+
 Pointset Pointset::operator -(const Point &p) const
 {
     Pointset ps;
@@ -136,7 +162,7 @@ Pointset Pointset::operator -(const Point &p) const
 
 void Pointset::clear()
 {
-    delete[] p_data;
+    if (p_data) delete[] p_data;
     p_data=NULL;
     count=0;
 }
