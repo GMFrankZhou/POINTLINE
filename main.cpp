@@ -5,7 +5,8 @@
 #include "pointset.h"
 #include "polygon.h"
 
-using std::cin,std::cout;
+using std::cin;
+using std::cout;
 
 int main() 
 {

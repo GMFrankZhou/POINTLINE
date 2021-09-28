@@ -8,8 +8,6 @@ using std::ostream;
 using std::istream;
 using std::ifstream;
 
-
-
 class Point
 {
     public:
