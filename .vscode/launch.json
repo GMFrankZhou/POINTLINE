@@ -12,10 +12,13 @@
         "program": "${workspaceFolder}/main",
         "args": [],
         "stopAtEntry": false,
-        "cwd": "${fileDirname}",
+        "cwd": "${workspaceFolder}",
         "environment": [],
         "externalConsole": false,
         "MIMode": "gdb",
+        "logging": {
+            "moduleLoad": false
+        },
         "setupCommands": [
             {
                 "description": "Enable pretty-printing for gdb",
@@ -28,13 +31,16 @@
             "name": "(lldb) Launch",
             "type": "cppdbg",
             "request": "launch",
-            "program": "~/projects/POINTLINE/main",
+            "program": "${workspaceFolder}/main",
             "args": [],
             "stopAtEntry": false,
-            "cwd": "${fileDirname}",
+            "cwd": "${workspaceFolder}",
             "environment": [],
             "externalConsole": false,
-            "MIMode": "lldb"
+            "MIMode": "lldb",
+            "logging": {
+                "moduleLoad": false
+            }
         }
     ]
 }
