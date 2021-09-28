@@ -7,11 +7,7 @@
 			"command": "/usr/bin/g++",
 			"args": [
 				"-g",
-				"${workspaceFolder}/main.cpp",
-				"${workspaceFolder}/line.cpp",
-				"${workspaceFolder}/point.cpp",
-				"${workspaceFolder}/pointset.cpp",
-				"${workspaceFolder}/polygon.cpp",
+				"${workspaceFolder}/*.cpp",
 				"-o",
 				"${workspaceFolder}/main"
 			],
