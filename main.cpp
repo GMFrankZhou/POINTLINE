@@ -15,6 +15,6 @@ int main()
     Polygon pg(ps);
  //   Polygon pg=ps.findboundary();
     cout <<pg<<std::endl;
-    if ((pg.getcount()>2)&&(ps.getcount()>pg.getcount())) cout <<"The remaining "<<ps.getcount()-pg.getcount()<<" point(s) are covered within the area.\n";
+    if ((pg.getcount()>2)&&(ps.getcount()>pg.getcount())) cout <<"The remaining "<<ps.getcount()-pg.getcount()<<" point(s) are covered within the area.\n\n";
     fin.close();
 }
