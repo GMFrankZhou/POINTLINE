@@ -13,9 +13,17 @@ class Square:public Polygon
         Square(const Point &, int);
         virtual int getarea() const;
 
-    private:
+    protected:
         int area;
         int sidelength;
+};
+
+class Squaresq:public Square
+{
+    public:
+        Squaresq() : Square(){};
+        Squaresq(const Point &, int);
+        virtual   int getarea() const;
 };
 
 

@@ -23,6 +23,6 @@ int main()
 Point p;
 int len;
 cin >> p >> len;
-Square sq(p,len);
+Squaresq sq(p,len);
 sq.printarea();
 }
