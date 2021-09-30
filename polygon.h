@@ -10,7 +10,10 @@ class Point;
 class Polygon
 {
     public:
-        Polygon():m_count(0) {m_line=NULL;};
+        Polygon():m_count(0) {
+            m_line=NULL;
+            m_ps = Pointset();
+        };
         Polygon(const Pointset &);
         Polygon(const Polygon &);
         Polygon(const Point &, const Point &, const Point &);
@@ -22,12 +25,12 @@ class Polygon
         void clear();
         Polygon operator + (const Point &);
         Polygon & append(const Point &);
-        virtual int area() const {return 0;}
+        virtual int getarea() const {return 0;}
         void printarea() const;
 
         ~Polygon();
 
-    private:
+    protected:
         Line *m_line;
         Pointset m_ps;
         int m_count;

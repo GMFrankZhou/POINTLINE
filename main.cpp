@@ -4,12 +4,13 @@
 #include "line.h"
 #include "pointset.h"
 #include "polygon.h"
+#include "square.h"
 
 using namespace std;
 
 int main() 
 {
-    ifstream fin("input.in");
+/*    ifstream fin("input.in");
     Pointset ps;
     fin >>ps;
     Polygon pg(ps);
@@ -17,4 +18,11 @@ int main()
     cout <<pg<<std::endl;
     if ((pg.getcount()>2)&&(ps.getcount()>pg.getcount())) cout <<"The remaining "<<ps.getcount()-pg.getcount()<<" point(s) are covered within the area.\n\n\n";
     fin.close();
+
+    */
+Point p;
+int len;
+cin >> p >> len;
+Square sq(p,len);
+sq.printarea();
 }

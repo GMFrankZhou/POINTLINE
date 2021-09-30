@@ -257,7 +257,7 @@ Polygon Polygon::operator + (const Point &p)
 void Polygon::printarea() const
 {
     cout << "About to print" << endl;
-    int s = area();
+    int s = getarea();
     cout << s<< endl;
     cout << "Print done" << endl;
 }

@@ -2,11 +2,22 @@
 #define _SQUARE_
 #include "polygon.h"
 
-class Square:Polygon
+class Square:public Polygon
 {
     public:
-        Square():Polygon(){}
-    private:
+        Square() : Polygon() 
+        { 
+            area = 0;
+            sidelength = 0;
+        }
+        Square(const Point &, int);
+        virtual int getarea() const;
 
-}
+    private:
+        int area;
+        int sidelength;
+};
+
+
+
 #endif
