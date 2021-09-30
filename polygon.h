@@ -22,6 +22,8 @@ class Polygon
         void clear();
         Polygon operator + (const Point &);
         Polygon & append(const Point &);
+        virtual int area() const {return 0;}
+        void printarea() const;
 
         ~Polygon();
 

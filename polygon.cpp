@@ -253,3 +253,11 @@ Polygon Polygon::operator + (const Point &p)
     pg.sort();
     return pg;
 }
+
+void Polygon::printarea() const
+{
+    cout << "About to print" << endl;
+    int s = area();
+    cout << s<< endl;
+    cout << "Print done" << endl;
+}
