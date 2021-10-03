@@ -3,34 +3,30 @@
 
 #include <iostream>
 #include "point.h"
+#include "lineabc.h"
 
 using std::ostream;
 
 class Pointset;
-class Line
+class Line:public Lineabc
 {
     public:
-        Line():perp(true){}
+        Line():Lineabc(),perp(true){}
         Line(const Point &, const Point &);
 
-        bool operator == (const Line &) const;
+        virtual bool operator == (const Line &) const;
         int isconnected (const Line &) const;
-        int pointatside(const Point &) const;
-        bool pointonline(const Point &) const;
+        virtual int pointatside(const Point &) const;
+        virtual bool pointonline(const Point &) const;
         double getk() const {return k;}
         double getb() const {return b;}
         bool isperp() const {return perp;}
-        int pointsatsameside(const Pointset &) const;
+        virtual int pointsatsameside(const Pointset &) const;
         void reverse();
-        Point getsp()const;
-        Point getep()const;
 
     private:
-        Point sp,ep;
         double k,b;
         bool perp;
-
-    friend ostream & operator << (ostream &, const Line &);
 };
 
 

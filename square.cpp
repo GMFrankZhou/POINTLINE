@@ -26,5 +26,5 @@ Squaresq::Squaresq(const Point &p, int len) : Square(p,len)
 
 int Squaresq::getarea() const
 {
-    return area*area;
+    return Square::getarea();
 }

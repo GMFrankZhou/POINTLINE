@@ -4,20 +4,7 @@
 #include <cmath>
 using namespace std;       
        
-Point Line::getsp() const
-{
-    return sp;
-}
 
-Point Line::getep() const
-{
-    return ep;
-}
-
-ostream & operator << (ostream &os, const Line & l)
-{
-    return os<<"["<<l.sp<<" , "<<l.ep<<"]"<<endl;
-}
 
 template <class T>
 bool inbetween(T a,T b, T x)
@@ -34,7 +21,7 @@ int gcf(int a, int b)
     return gcf(b,r);
 }
 
-Line::Line(const Point &p1, const Point &p2):sp(p1),ep(p2)
+Line::Line(const Point &p1, const Point &p2):Lineabc(p1,p2)
 {
     if (p1.getx()==p2.getx()) 
     {
@@ -51,7 +38,9 @@ Line::Line(const Point &p1, const Point &p2):sp(p1),ep(p2)
 
 bool Line::operator == (const Line &l) const
 {
-    if((sp==l.sp&&ep==l.ep) || (sp==l.ep&&ep==l.sp)) return true;
+
+
+    if((sp==l.getsp()&&ep==l.getep()) || (sp==l.getep()&&ep==l.getsp())) return true;
     else return false;
 }
 
@@ -117,6 +106,9 @@ int Line::pointsatsameside(const Pointset &ps) const
 
 bool Line::pointonline(const Point &p) const
 {
+    if (Lineabc::pointonline(p))
+        return true;
+
     if (pointatside(p)!=0) return false;
     if (perp)
         {
